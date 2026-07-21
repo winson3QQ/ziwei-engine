@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紫微命書 · 2009男命 · v0.1</title>
+<style>
+:root{
+  --ink:#12141d; --ink2:#181b27; --panel:#1e2233; --line:#343a52;
+  --gold:#e3c07a; --gold-dim:#b39a67;
+  --paper:#f2eee1; --muted:#bdb9ca; --soft:#d6d1c2;
+  --lu:#6fbb90; --quan:#d99f4b; --ke:#82a8de; --ji:#d95a50;
+  --fact:#6fbb90; --inf:#d99f4b;
+  --good:#20301f; --bad:#3a1f1d;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.02em}
+main{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+header{display:flex;gap:28px;align-items:stretch;padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.title-strip{writing-mode:vertical-rl;font-family:var(--serif);font-size:52px;font-weight:700;color:var(--gold);border:1px solid var(--gold-dim);padding:22px 12px;letter-spacing:.35em;background:var(--ink2)}
+.head-meta{display:flex;flex-direction:column;justify-content:center;gap:10px}
+.head-meta h2{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--paper)}
+.head-meta .sub{color:var(--muted);font-size:14.5px}
+.head-meta .oath{margin-top:10px;padding:12px 16px;border-left:2px solid var(--gold-dim);color:var(--soft);font-size:14.5px}
+.head-meta .oath b{color:var(--gold)}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 9px;border-radius:2px;margin-right:6px;vertical-align:1px;letter-spacing:.08em}
+.t-fact{color:var(--fact);border:1px solid var(--fact)}
+.t-inf{color:var(--inf);border:1px solid var(--inf)}
+.hua{display:inline-block;font-size:11.5px;font-weight:700;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;color:#0e0f16;margin-left:3px;vertical-align:2px}
+.h-lu{background:var(--lu)}.h-quan{background:var(--quan)}.h-ke{background:var(--ke)}.h-ji{background:var(--ji)}
+.ev{margin:2px 0 16px;padding:8px 14px;background:var(--ink2);border-left:3px solid var(--gold-dim);font-size:13.5px;color:var(--soft);line-height:1.8}
+.ev b{color:var(--gold);font-weight:700;margin-right:8px}
+.ev .k{color:var(--muted)}
+li .ev{margin-top:6px;margin-bottom:6px}
+section{margin-top:56px}
+h3.sec{font-family:var(--serif);font-size:25px;color:var(--gold);font-weight:700;letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:22px}
+h3.sec span{color:var(--gold-dim);font-size:14px;margin-right:12px}
+h4{font-family:var(--serif);font-size:18px;color:var(--paper);margin:28px 0 10px;letter-spacing:.08em}
+p{margin-bottom:12px}
+p.note{color:var(--muted);font-size:13.5px}
+ul{margin:0 0 14px 1.3em}
+li{margin-bottom:10px}
+li b,p b{color:var(--gold)}
+.chart{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(122px,auto);gap:5px;margin:8px 0 10px}
+.pal{background:var(--panel);border:1px solid var(--line);padding:9px 10px;position:relative}
+.pal:hover{border-color:var(--gold-dim);background:#252b45}
+.pal .branch{position:absolute;right:8px;bottom:5px;font-family:var(--serif);font-size:16px;color:#5b6184}
+.pal .pname{font-size:13.5px;color:var(--muted);letter-spacing:.1em}
+.pal .stars{font-family:var(--serif);font-size:16px;margin-top:4px;line-height:1.7;color:var(--paper)}
+.pal .aux{font-size:13px;color:var(--soft);margin-top:2px}
+.pal .dy{position:absolute;left:9px;bottom:5px;font-size:12px;color:#7d82a3}
+.pal.current{border:1.5px solid var(--gold);background:#252540}
+.pal.current .dy{color:var(--gold)}
+.pal.shen .pname::after{content:"　身宮";color:var(--quan)}
+.pal.ming .pname{color:var(--gold)}
+.center{grid-column:2/4;grid-row:2/4;background:var(--ink2);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:16px;text-align:center}
+.center .cn{font-family:var(--serif);font-size:22px;color:var(--gold);letter-spacing:.2em}
+.center .ci{font-size:14px;color:var(--muted);line-height:2}
+.center .sihua{font-size:14px;color:var(--paper)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0 14px}
+th{font-family:var(--serif);text-align:left;color:var(--gold);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--gold-dim);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--paper)}
+td.yr{font-family:var(--serif);white-space:nowrap}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 9px;border-radius:2px;white-space:nowrap}
+.c-good{color:#9adcb3;background:var(--good)}
+.c-bad{color:#f2b0a8;background:var(--bad)}
+.c-mid{color:#d6d1c2;background:#2c3042}
+tr.row-good td{background:rgba(111,187,144,.07)}
+tr.row-bad td{background:rgba(217,90,80,.08)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+.card h5{font-family:var(--serif);color:var(--gold);font-size:16.5px;margin-bottom:8px}
+.card p,.card li{font-size:14.5px}
+.motto{margin:20px 0;padding:18px 22px;background:var(--ink2);border:1px solid var(--gold-dim);font-family:var(--serif);font-size:17px;line-height:2;color:var(--paper);text-align:center}
+.motto b{color:var(--gold)}
+footer{margin-top:70px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:760px){
+  header{flex-direction:column;gap:18px}
+  .title-strip{writing-mode:horizontal-tb;font-size:34px;letter-spacing:.3em;padding:12px 18px;align-self:flex-start}
+  .chart{font-size:13px;grid-auto-rows:minmax(100px,auto)}
+  .pal .stars{font-size:14px}
+  .grid2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="title-strip">紫微命書</div>
+  <div class="head-meta">
+    <h2>男命 · 國曆二〇〇九年五月二十六日 戌時</h2>
+    <div class="sub">農曆己丑年五月初三戌時 · 陰男 · 金四局 · 四歲起運逆行 · 命宮申 · 身宮辰</div>
+    <div class="sub">第一版 v0.1 · 立書日 2026-07-20 · 立書人：其父</div>
+    <div class="oath">本書為父所立，體例承其父命書 v0.3：<b>〔事實〕／〔推論〕</b>分層、推論附佐證、遠期推論以「結構層」閱讀。命主現年十七歲——<b>本書為父之口袋參考，非命主之人生時程表；其成年後自行取捨，家規第一條：示範，不指定。</b>命理非科學，本書不唬爛。</div>
+  </div>
+</header>
+
+<!-- ===== 壹 本命盤 ===== -->
+<section id="chart">
+  <h3 class="sec"><span>壹</span>本命盤</h3>
+  <div class="legend">
+    <span><span class="hua h-lu">祿</span> 生年化祿</span><span><span class="hua h-quan">權</span> 生年化權</span>
+    <span><span class="hua h-ke">科</span> 生年化科</span><span><span class="hua h-ji">忌</span> 生年化忌</span>
+    <span style="color:var(--gold)">金框＝現行大運（14–23）</span>
+  </div>
+  <div class="chart">
+    <div class="pal"><div class="pname">子女宮</div><div class="stars">廉貞　貪狼<span class="hua h-quan">權</span></div><div class="aux">火星 · 陀羅</div><div class="dy">34–43</div><div class="branch">巳</div></div>
+    <div class="pal"><div class="pname">夫妻宮</div><div class="stars">巨門</div><div class="aux">祿存</div><div class="dy">24–33</div><div class="branch">午</div></div>
+    <div class="pal current"><div class="pname">兄弟宮</div><div class="stars">天相</div><div class="aux">擎羊</div><div class="dy">14–23 ◄ 現行</div><div class="branch">未</div></div>
+    <div class="pal ming"><div class="pname">命宮</div><div class="stars">天同　天梁<span class="hua h-ke">科</span></div><div class="aux">天鉞</div><div class="dy">4–13</div><div class="branch">申</div></div>
+    <div class="pal shen"><div class="pname">財帛宮</div><div class="stars">太陰</div><div class="dy">44–53</div><div class="branch">辰</div></div>
+    <div class="center">
+      <div class="cn">己丑年五月初三戌時</div>
+      <div class="ci">陰男 · 金四局 · 逆行<br>命宮壬申 · 劍鋒金</div>
+      <div class="sihua">生年四化：武曲<span class="hua h-lu">祿</span>　貪狼<span class="hua h-quan">權</span>　天梁<span class="hua h-ke">科</span>　文曲<span class="hua h-ji">忌</span></div>
+    </div>
+    <div class="pal"><div class="pname">父母宮</div><div class="stars">武曲<span class="hua h-lu">祿</span>　七殺</div><div class="dy">54–63</div><div class="branch">酉</div></div>
+    <div class="pal"><div class="pname">疾厄宮</div><div class="stars">天府</div><div class="dy">44–53＊</div><div class="branch">卯</div></div>
+    <div class="pal"><div class="pname">福德宮</div><div class="stars">太陽</div><div class="dy">64–73＊</div><div class="branch">戌</div></div>
+    <div class="pal"><div class="pname">遷移宮</div><div class="stars" style="color:#bdb9ca">（借申宮同梁）</div><div class="aux">文曲<span class="hua h-ji">忌</span> · 紅鸞</div><div class="dy">64–73</div><div class="branch">寅</div></div>
+    <div class="pal"><div class="pname">交友宮</div><div class="stars">紫微　破軍</div><div class="dy">74–83</div><div class="branch">丑</div></div>
+    <div class="pal"><div class="pname">官祿宮</div><div class="stars">天機</div><div class="aux">文昌 · 天魁</div><div class="dy">84–93</div><div class="branch">子</div></div>
+    <div class="pal"><div class="pname">田宅宮</div><div class="stars" style="color:#bdb9ca">（借巳宮廉貪）</div><div class="dy">94–103</div><div class="branch">亥</div></div>
+  </div>
+  <p class="note">〔事實〕曆法經萬年曆對照（含香港天文台曆表）。大運逆行序：申4–13、未14–23、午24–33、巳34–43、辰44–53、卯54–63、寅64–73、丑74–83、子84–93、亥94–103（＊卯戌兩宮標示以逆行序為準）。宮干（甲己之年丙作首）：寅丙、卯丁、辰戊、巳己、午庚、未辛、申壬、酉癸、戌甲、亥乙、子丙、丑丁。<b>與其父之盤同套星系分佈（紫微皆在丑），命宮起點不同——同一副牌，兩種拿法。</b>建議以非中國來源排盤工具覆核。</p>
+
+  <h4>格局總論</h4>
+  <p><span class="tag t-inf">推論</span><b>福蔭之命、考試之格、先享福後成器。</b>天同（第一福星）天梁（蔭星）化科坐命——有福可享、有蔭可靠、專業終被看見；天鉞坐命、天魁坐官祿——「坐貴向貴」，讀書考試遇貴提點之格。官祿天機文昌：算與寫的腦子。弱點同樣寫明：天同主安逸（自律為終身課題）、天梁慣臨時抱佛腳、文曲生年忌坐遷移（在外表達彆扭、感情訊息型誤會）。身宮坐財帛太陰：一生與「錢的管理」深緣——制度財之體質。天同天梁為「先散仙、後成器」之局：少年之散是格局非墮落，中年後反穩、能蔭人。</p>
+  <div class="ev"><b>佐證</b><span class="k">星曜／宮位：</span>天同天梁（科）天鉞坐申命；天機文昌天魁坐子官祿；文曲（忌）紅鸞坐寅遷移；太陰坐辰（身宮兼財帛）；武曲（祿）七殺坐酉父母——父蔭之財源有星（對照其父盤太陽祿入子女宮：一個坐等蔭之命，配一個甘願給蔭之父，兩盤互相咬合）。<span class="k">技巧：</span>星性論＋生年四化＋魁鉞貴人格。</div>
+</section>
+
+<!-- ===== 貳 性格與自律 ===== -->
+<section id="self">
+  <h3 class="sec"><span>貳</span>性格結構與自律機制</h3>
+  <p><span class="tag t-inf">推論</span><b>自律不能靠要求，要靠環境設計——此為本書教養總則。</b>命宮自化祿（對己寬容、能量易漏）＋福德自化忌（心神易散、情緒式分心）：「散仙」為出廠設定，罵「要自律」等於對漏水之桶喊話。命宮飛忌入父母：高壓管教反彈直擊管教者——<b>給結構他收，給壓力他彈</b>。</p>
+  <ul>
+    <li><b>槓桿一：外面比家裡有用。</b>遷移宮丙干天機權＋文昌科全飛入官祿、天同祿飛入命——外部環境直灌學習動力：自習室、圖書館、同儕環境，在外一小時勝在家兩小時。</li>
+    <li><b>槓桿二：家中有用的是空間不是人盯。</b>田宅乙干天機祿入官祿、天梁權入命（家之結構餵動力）；同干太陰忌飛入辰身宮（安逸物直漏其身）——<b>執行只一條：手機不進書房。</b></li>
+    <li><b>槓桿三：脈衝式動力，縮短收割週期。</b>官祿丙干雙自化（權科化於宮內星）——動力來得猛留不久；對策非拉平（做不到），是週目標、小考、短衝刺——每個脈衝有收成即等於連續。</li>
+    <li><b>燃料：被看見。</b>天梁化科坐命——進步被明確說出口是最大燃料；只挑錯不記功是對此盤最傷之養法。</li>
+  </ul>
+  <div class="ev"><b>佐證</b>申壬干天梁自化祿（命自化祿）；戌甲干太陽自化忌（福德自化忌）；壬武曲忌飛入酉父母宮；寅丙干、亥乙干、子丙干飛化如文。<span class="k">技巧：</span>宮干飛化＋自化。</div>
+</section>
+
+<!-- ===== 參 現行大運 ===== -->
+<section id="dayun1">
+  <h3 class="sec"><span>參</span>現行大運（14–23，2022–2031）五件注意事</h3>
+  <p class="note">〔事實〕大運命入未（天相＋擎羊，疊本命兄弟宮）；大運辛干四化：巨門祿、太陽權、文曲科、<b>文昌忌——正入本命官祿宮，文書之忌壓學業線十年</b>。結構註記：未宮為其父現行大運之忌星所在——家中名分張力點即此子人格成形之立足點，父之「立印」功課即此子十年之環境品質。</p>
+  <ul>
+    <li><b>一、人身安全（最實際）。</b>擎羊（刃）坐大運命＋火星在大運遷移線——運動傷害、交通事故（考照騎車之齡）、衝動行事。裝備保險辦齊、不載人不飆車入家規、劇烈運動防護不省。</li>
+    <li><b>二、2028大一警訊年。</b>戊貪狼祿入巳（社團戀愛自由全面引爆）同年戊天機忌疊大運文昌忌<b>雙忌壓學業宮</b>——大一玩過頭、成績崩盤之教科書組合。對策非禁玩（貪狼祿禁不住），是大一上選課保守、出席設底線、容錯預留。2027放榜後談一次。</li>
+    <li><b>三、文書忌貫穿至畢業。</b>選課漏修、學分算錯、證照報名、畢業門檻全在射程。加重年：2028、<b>2031（流年文昌忌疊大運文昌忌，恰為大四畢業年）</b>——論文、離校、履歷、報到文件逐字核。父之「行政官」任期至2031年6月，之後移交。</li>
+    <li><b>四、感情線啟動——不擋，教表達。</b>遷移紅鸞＋文曲忌、大運辛文曲化科飛入（科解忌）：大學戀愛為本運正常配備。底子彆扭（訊息型誤會、挫折悶著不說）——不禁止、不盤問、留一條「想講時有人聽」的線；<b>2029己文曲忌疊生年忌——該年情緒低落多半是此線非課業。</b></li>
+    <li><b>五、永不比較。</b>天相（重形象）坐大運命疊兄弟宮（同儕）——自我價值掛在「與人比」上，擎羊在旁、比輸則刺。鐵律：不拿他與任何人比（親戚、同學、父之當年皆不可）；反面：同儕中被認可之經驗（社團幹部、隊上位子）滋養大於成績單。</li>
+  </ul>
+  <p><span class="tag t-inf">推論</span><b>放寬心一條：方向未定是格局。</b>大運官祿在亥無主星借廉貪坐陀羅——23歲前換念頭、慢慢磨為原廠設定；此十年任務是排除法，不是定終身。定向在24歲後。</p>
+</section>
+
+<!-- ===== 肆 學業戰略 ===== -->
+<section id="study">
+  <h3 class="sec"><span>肆</span>學業戰略（2026–2027）</h3>
+  <div class="motto"><b>戰略押學測、環境包後勤、文件父校對、目標切成週、認可說出口。</b><br>父之職位：行政官加啦啦隊——不當教練。</div>
+  <ul>
+    <li><b>時程：一切押2027年1月學測。</b>丙年文昌化科＋天機化權齊入官祿、科解大運文昌忌——十年最佳窗口一戰定音；分科（丁未年，流命坐擎羊、巨門忌攪局）為保險絲非主戰場；<b>2028重考（天機忌疊文昌忌雙忌壓官祿）為最差選項，直接排除。</b>資源全部前置至2026下半年，9月後只執行不加項。</li>
+    <li><b>不當教練四理由：</b>頻道載不動評價（廉貞火星共星：指導經其濾鏡即「父之失望」，兩句起火）、引擎不吃外推（雙自化：外力硬推整組熄火，唸書與被管綁定則書桌先處理情緒）、專業不對口（課綱題型為師與補教之主場）、角色互斥（一挑錯則「無條件支持者」之位空懸——此位唯父母能坐，教練之位外面排隊）。</li>
+    <li><b>二類組科系口袋名單〔推論；級分與其意願為事實層，此表為父之口袋非其志願卡〕：</b>主攻資工資科（天機文昌之純對應，出路直通資料科學）；side統計應數（「算」之底層＋日後巨門「用數字說話」）；工科挑規劃型（工工、環工），避純製造實作；奇兵二條——<b>專利工程師</b>（二類工科學士→智財所，理工學士為入場券；父之WoMT經驗可為示範）、<b>公職技術類科</b>（天梁天同之公門體質）；醫工生醫電子為三類之緣的二類合法橋，備援不主攻。大學四年關鍵動作：把說與寫練利——升梯隊之門票，比多修兩門課值錢。</li>
+  </ul>
+  <div class="ev"><b>佐證</b>丙文昌科＋天機權入子官祿（學測年，農曆年前屬丙午）；丁天機科入官祿但流命坐擎羊（分科）；戊天機忌入官祿（重考年）；天機（謀而非造）＋天梁科（制度位階）＋天同（血汗線耗不起）＋下運巨門文曲（帶表達介面之理組出路）。<span class="k">技巧：</span>流年四化疊大運＋星曜職域。</div>
+</section>
+
+<!-- ===== 伍 財務制度 ===== -->
+<section id="money">
+  <h3 class="sec"><span>伍</span>大學財務制度（父子共同施行版）</h3>
+  <p><span class="tag t-inf">推論</span>設計原則：<b>福照享、管線父設計</b>——天同之懶不逼勤只架空、天梁之蔭不斷流只走制度水管。身宮坐財帛太陰：此子一生與「錢的制度」深緣——大學四年即其第一套財務系統之裝機期，2031離巢前移交完成（父2033自顧不暇，防波堤須提前蓋畢）。</p>
+  <div class="grid2">
+    <div class="card"><h5>八條規則（一張紙公布）</h5><p>每月固定日入帳｜9月加學期開辦費｜發錢隔日自動扣定期定額｜結餘可手動加碼｜投資戶只進不出（四年）｜標的四年綁市值型ETF不挑股｜半年父子對帳一次只看不評｜出事可以談（求援條款：談了不罵、條件重談）。</p></div>
+    <div class="card"><h5>自動化四層</h5><p>金流全自動（轉帳→隔日扣→代扣繳→剩餘才可花：懶散只作用於無害區間）｜資訊送到眼前（推播月報警示：不求主動查，只求視線接觸）｜例外才驚動人（扣款失敗、餘額警示、求援三燈；亮才談，沒亮閉嘴——警報式不巡邏式）｜勤快有獎（主動行為出現時明確認可——底線靠自動化、上限靠被看見）。</p></div>
+    <div class="card"><h5>防繞設計（防手滑不防蓄意）</h5><p>雙帳戶拆流：A戶專職交割（投資額直入、貼扣款日、不辦卡不開轉帳額度）、B戶生活；A戶餘額自動掃定存為第二道網。<b>故意保留「賣出→交割→提領」之有紀錄合法路徑不封死</b>——「做得到但選擇不做」教的自律，勝過「做不到」十倍；真走了，半年對帳即談判桌，大學繳的教訓是全人生最便宜的價格。禁：信用卡附卡、先買後付（BNPL）。</p></div>
+    <div class="card"><h5>工具清單〔事實〕</h5><p>預約轉帳＋定期定額＋銀行代扣繳；簽帳金融卡＋手機載具發票歸戶（帳是系統生的，過文昌忌之關）；既有銀行證券戶（18歲後轉一般戶）；贈與稅年免稅額244萬內、生活教育費本不計入。焊死版：金錢型信託（規則入契約、銀行執行、父之後門一併焊）。全程台灣本地金融服務，無中國背景工具。</p></div>
+  </div>
+</section>
+
+<!-- ===== 陸 未來大運 ===== -->
+<section id="future">
+  <h3 class="sec"><span>陸</span>未來大運（結構層閱讀）</h3>
+  <p class="note">〔方法論〕本章依父書v0.4認識論閱讀：遠期推論非「較不準之預測」，是<b>結構描述</b>——星象恆定、映射會過期、驗證會失能。「配備是確定的，戰場是未知的」——閱讀時換檔，不折價亦不當真程表。</p>
+
+  <h4>24–33（2032–2041，午宮巨門祿存疊夫妻）——立言之運：口、婚、錢</h4>
+  <ul>
+    <li><b>口是飯碗也是破口。</b>巨門生年權（大運坐其宮）＋文曲：以說寫辯教立身——法務、企劃、教學、技術文件、談判型職；埋首無聲之崗埋沒之。初入職場之跟頭：話贏人失。家傳一條：<b>書面留痕是武器也是刑具</b>。2033（25歲，父子同忌年）首次大顛簸——說錯話／得罪人／文件出包三選一：父只聽不罵、預備金留其份。</li>
+    <li><b>婚在此運。</b>主劇本：2034（26）遇、2038（30）論、2041（33）成；<b>2037丁年巨門忌入大運命——感情口舌關，不談婚嫁條件不下通牒。</b>父母之位：不催（陀羅在父盤夫妻線——催反拖）、不挑剔（巨門權之子被批其選擇，以十倍道理防衛後偷偷疏遠）；家能給的最好支援：2041前後該給的給得清楚——白紙黑字，第三代適用。</li>
+    <li><b>錢無主星靠制度。</b>大運財帛寅：無主星＋文曲生年忌坐——收入形態或不穩、金錢文件為失分點（契約沒看懂、薪資被話術）。對策全前置：大學八條制度2031前跑順移交；定期定額不斷、四不家規內化、合約給父看一眼之習慣保留至30歲。</li>
+  </ul>
+
+  <h4>34–43（2042–2051，巳宮廉貪火疊子女）——掌權之運</h4>
+  <p><span class="tag t-inf">推論</span><b>貪狼化權</b>：少年之散翻面為跨界整合、人脈操盤——案子在酒桌上談成之人（與父之工程師性格不同款，屆時勿看不慣）。<b>廉貞</b>：官祿主——搶位掛銜進管理層之十年，要的是實權；囚星之暗面：綁組織過深、為其扛過頭——父54歲所還之「廉貞債」，其40上下大概率繳一次，屆時借其父書一閱。<b>火星</b>：火貪完全體——暴起之十年亦燙傷之十年，三燙點：脾氣（拍桌）、意外（急促之傷）、追第二把（家訓：第一把格局給的、第二把忌等著的——2042年前傳）。疊子女宮：此運成家生子開枝——第三代之盤為本書留給2040年代之懸念。</p>
+  <p><span class="tag t-inf">推論</span><b>三運連讀，星曜自排之劇本：14–23天相（學形）→24–33巨門（立言）→34–43廉貪火（掌權）——形、言、權，一階一階上。</b>其登基之年（2042），父70歲正坐未宮天相運（掌印蔭人）中段——兩盤於彼處交棒：父之印傳完，子之權接上。</p>
+</section>
+
+<!-- ===== 柒 父子共業 ===== -->
+<section id="bond">
+  <h3 class="sec"><span>柒</span>父子共業</h3>
+  <p><span class="tag t-inf">推論</span><b>同一套星系、同一個巳宮：</b>父之身宮官祿兼終身忌所在，即子之大運子女位所疊、亦其34歲後之登基地——<b>父拿到的是結，子拿到的是柄；父之未竟之地，子之登基之地。</b>父命宮之紫破為子之交友線；子命宮之同梁為父之疾厄——「你的病是他的命；你拚命的地方是他交朋友的地方。」</p>
+  <ul>
+    <li><b>三共星即相處全劇本：</b>廉貞（互相在乎遠超表現，最深的話不當面說——父子母語是書面）、貪狼（父終身之癢勿遞其解——守住是傳承、守不住是枷鎖）、火星（吵得急消得快、冷戰非劇本、火過無灰——衝突當下離場、隔日書面）。</li>
+    <li><b>起落同組星計時：</b>2028同祿（子開竅、父擴權——多帶其看父之世界）、2033同忌（子起步顛簸、父風暴——父站得穩子才有靠；勿投射職場焦慮為催促）、2034同祿（子落定、父收官——交棒感最強之年）。</li>
+    <li><b>聚散有時：</b>此十年同住（父之大福德疊子女：他在家、日子才完整）；大學外宿為聚中之散；<b>2033前後南飛離巢——恰為父之風暴年：功課是體面地放</b>，放得漂亮，父84後那條回頭線（大運入子之宮——晚年安排隨其據點、文件執行人即他）才接得上。廉貞父子之情不斷，回來的溫度由離開那天父說的話定。</li>
+    <li><b>盲測留檔〔證據力全書最低，2027放榜對答案用〕：</b>大學方位象「北、離家住宿」（官祿與應期星聚子＝正北；遷移紅鸞文曲得科＝外宿）；工作方位象「南、技術研究之途」（24歲起連走午巳南方運）。<b>不入志願會議。</b></li>
+  </ul>
+  <p><span class="tag t-inf">推論</span>總收：父之終身忌在巳，解忌之祿數年一至而忌不滅——除了一處：<b>此子即站在那個宮位裡，且尚有數十年。</b>父之癢不必其代抓，但父煉海中金之姿，其全程在看。父之忌，最終之解或不在何年之祿，在他。</p>
+</section>
+
+<!-- ===== 捌 驗證與方法論 ===== -->
+<section id="method">
+  <h3 class="sec"><span>捌</span>驗證紀錄與方法論</h3>
+  <table>
+    <tr><th>事件</th><th>性質</th><th>內容</th></tr>
+    <tr><td class="yr">2027/1 學測</td><td><span class="chip c-good">主戰場</span></td><td>權科入官祿、科解大運忌之十年最佳窗口——本書第一個到期之預測，結果回填後出v0.2。</td></tr>
+    <tr><td class="yr">2027 放榜</td><td><span class="chip c-mid">盲測</span></td><td>方位象（北、外宿）對答案；映射準確度記入引擎測試集。</td></tr>
+    <tr><td class="yr">2028</td><td><span class="chip c-bad">警訊</span></td><td>大一貪狼祿對雙忌壓官祿——制度（選課保守、出席底線）成效驗證年。</td></tr>
+    <tr><td class="yr">2029／2031</td><td><span class="chip c-mid">留檔</span></td><td>2029文曲雙忌（感情線情緒）；2031文昌雙忌（畢業文件）——各依對策執行後回填。</td></tr>
+    <tr><td class="yr">2034／2037／2041</td><td><span class="chip c-mid">結構層</span></td><td>婚戀時程三點——遠期，僅存檔。</td></tr>
+  </table>
+  <ul>
+    <li><b>方法論（承父書v0.3並含v0.4修訂）：</b>生年四化為體、大運宮干疊宮為用、流年定應期、飛化暗合輔證、單步飛化不繞路；<b>遠期推論由預測層轉為結構層閱讀</b>；事後套合為已知系統性偏誤——本書多數判讀立於父所供之現實敘述上，算數者唯到期可驗之預測。</li>
+    <li><b>本書特有限制：</b>命主未成年且未參與立書——全部內容為父之單方觀察與推論；其成績單、體檢、意願為事實層，永遠優先於本書。<b>本書之最終用途：命主成年後若有興趣，親手覆核每一條——覆核之日，即此書功成之時。</b></li>
+  </ul>
+</section>
+
+<footer>—— v0.1 終 · 修訂觸發：2027學測放榜，或命主本人索閱 · 立書人：其父，同盤異宮之人 ——</footer>
+</main>
+</body>
+</html>

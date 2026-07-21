@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紫微命書 · 1973男命 · v0.5（真盤校準定本）</title>
+<style>
+:root{--ink:#12141d;--ink2:#181b27;--panel:#1e2233;--line:#343a52;--gold:#e3c07a;--gold-dim:#b39a67;--paper:#f2eee1;--muted:#bdb9ca;--soft:#d6d1c2;--lu:#6fbb90;--quan:#d99f4b;--ke:#82a8de;--ji:#d95a50;--fact:#6fbb90;--inf:#d99f4b;--good:#20301f;--bad:#3a1f1d;--serif:"Noto Serif TC","Songti TC",serif;--sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.02em}
+main{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+header{display:flex;gap:28px;align-items:stretch;padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.title-strip{writing-mode:vertical-rl;font-family:var(--serif);font-size:50px;font-weight:700;color:var(--gold);border:1px solid var(--gold-dim);padding:22px 12px;letter-spacing:.3em;background:var(--ink2)}
+.head-meta{display:flex;flex-direction:column;justify-content:center;gap:10px}
+.head-meta h2{font-family:var(--serif);font-weight:600;font-size:23px}
+.head-meta .sub{color:var(--muted);font-size:14.5px}
+.head-meta .oath{margin-top:10px;padding:12px 16px;border-left:2px solid var(--gold-dim);color:var(--soft);font-size:14.5px}
+.head-meta .oath b{color:var(--gold)}
+.corr{margin-top:8px;padding:10px 16px;background:var(--ink2);border:1px solid var(--fact);font-size:13.5px;color:var(--soft)}
+.corr b{color:var(--fact)}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 9px;border-radius:2px;margin-right:6px;letter-spacing:.08em}
+.t-fact{color:var(--fact);border:1px solid var(--fact)}
+.t-inf{color:var(--inf);border:1px solid var(--inf)}
+.hua{display:inline-block;font-size:11.5px;font-weight:700;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;color:#0e0f16;margin-left:3px;vertical-align:2px}
+.h-lu{background:var(--lu)}.h-quan{background:var(--quan)}.h-ke{background:var(--ke)}.h-ji{background:var(--ji)}
+.ev{margin:2px 0 16px;padding:8px 14px;background:var(--ink2);border-left:3px solid var(--gold-dim);font-size:13.5px;color:var(--soft);line-height:1.8}
+.ev b{color:var(--gold);margin-right:8px}
+.ev .k{color:var(--muted)}
+li .ev{margin-top:6px;margin-bottom:6px}
+td .ev{margin:6px 0 0;padding:6px 10px;font-size:12.5px}
+section{margin-top:56px}
+h3.sec{font-family:var(--serif);font-size:25px;color:var(--gold);font-weight:700;letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:22px}
+h3.sec span{color:var(--gold-dim);font-size:14px;margin-right:12px}
+h4{font-family:var(--serif);font-size:18px;margin:28px 0 10px;letter-spacing:.08em}
+p{margin-bottom:12px}
+p.note{color:var(--muted);font-size:13.5px}
+ul{margin:0 0 14px 1.3em}
+li{margin-bottom:10px}
+li b,p b{color:var(--gold)}
+.chart{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(130px,auto);gap:5px;margin:8px 0 10px}
+.pal{background:var(--panel);border:1px solid var(--line);padding:9px 10px;position:relative}
+.pal .branch{position:absolute;right:8px;bottom:5px;font-family:var(--serif);font-size:16px;color:#5b6184}
+.pal .pname{font-size:13px;color:var(--muted);letter-spacing:.08em}
+.pal .stars{font-family:var(--serif);font-size:15.5px;margin-top:4px;line-height:1.6}
+.pal .aux{font-size:12px;color:var(--soft);margin-top:2px}
+.pal .dy{position:absolute;left:9px;bottom:5px;font-size:11.5px;color:#7d82a3}
+.pal.current{border:1.5px solid var(--gold);background:#252540}
+.pal.current .dy{color:var(--gold)}
+.pal.shen .pname::after{content:"　身宮";color:var(--quan)}
+.pal.ming .pname{color:var(--gold)}
+.center{grid-column:2/4;grid-row:2/4;background:var(--ink2);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:16px;text-align:center}
+.center .cn{font-family:var(--serif);font-size:21px;color:var(--gold);letter-spacing:.15em}
+.center .ci{font-size:13.5px;color:var(--muted);line-height:2}
+.center .sihua{font-size:13.5px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0 14px}
+th{font-family:var(--serif);text-align:left;color:var(--gold);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--gold-dim);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.yr{font-family:var(--serif);white-space:nowrap}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 9px;border-radius:2px;white-space:nowrap}
+.c-good{color:#9adcb3;background:var(--good)}
+.c-bad{color:#f2b0a8;background:var(--bad)}
+.c-mid{color:#d6d1c2;background:#2c3042}
+tr.row-good td{background:rgba(111,187,144,.07)}
+tr.row-bad td{background:rgba(217,90,80,.08)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+.card h5{font-family:var(--serif);color:var(--gold);font-size:16px;margin-bottom:8px}
+.card p,.card li{font-size:14.5px}
+.motto{margin:20px 0;padding:18px 22px;background:var(--ink2);border:1px solid var(--gold-dim);font-family:var(--serif);font-size:17px;line-height:2;text-align:center}
+.motto b{color:var(--gold)}
+footer{margin-top:70px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:760px){header{flex-direction:column;gap:18px}.title-strip{writing-mode:horizontal-tb;font-size:32px;letter-spacing:.3em;padding:12px 18px;align-self:flex-start}.chart{font-size:12px;grid-auto-rows:minmax(104px,auto)}.pal .stars{font-size:13px}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="title-strip">紫微命書</div>
+  <div class="head-meta">
+    <h2>男命 · 國曆一九七三年三月十三日 寅時（03:16）</h2>
+    <div class="sub">農曆癸丑年二月初九寅時 · 陰男 · 金四局（海中金）· 命主巨門 · 身主天相 · 四歲起運逆行</div>
+    <div class="sub">第五版 v0.5 · 真盤校準定本 · 2026-07-20 · <b style="color:var(--gold)">本冊完全自足，不參照任何前版</b></div>
+    <div class="corr"><b>v0.5 校準聲明：</b>本版依命主提供之排盤軟體實盤全面校對。確認：命宮丑（紫破祿）、身宮巳（官祿）、財帛酉（武殺）、田宅辰（太陰科）、遷移未（天相）、華蓋在丑。<b>校正吸收</b>：兄弟宮(子)補鈴星；大運宮位改採「大運命宮起、全盤輪佈」正法（先前誤用本命盤三合數宮，已改）；64–73財帛在卯（天府天魁·空庫）、官祿在亥（陀羅借廉貪）、財源之祿入大福德。庚干四化採師承天相忌版。</div>
+    <div class="oath">全文依 <b>〔事實〕／〔推論〕</b>分層、推論附佐證。近期為可驗預測；遠期以「結構層」閱讀——星象恆定、映射會過期、驗證會失能。命理非科學，本書不唬爛。驗證紀錄、盲測詳錄、勘誤與引擎規格見《驗證與方法論別冊》。</div>
+  </div>
+</header>
+
+<!-- 壹 本命盤 -->
+<section>
+  <h3 class="sec"><span>壹</span>本命盤（真盤）</h3>
+  <div class="legend"><span><span class="hua h-lu">祿</span>生年祿</span><span><span class="hua h-quan">權</span>權</span><span><span class="hua h-ke">科</span>科</span><span><span class="hua h-ji">忌</span>忌</span><span style="color:var(--gold)">金框＝現行大運 54–63</span></div>
+  <div class="chart">
+    <div class="pal shen"><div class="pname">官祿宮</div><div class="stars">廉貞　貪狼<span class="hua h-ji">忌</span></div><div class="aux">火星·天鉞·左輔·天馬·龍池</div><div class="dy">84–93</div><div class="branch">巳</div></div>
+    <div class="pal"><div class="pname">交友宮</div><div class="stars">巨門<span class="hua h-quan">權</span></div><div class="aux">文曲·天官·天壽·天德</div><div class="dy">74–83</div><div class="branch">午</div></div>
+    <div class="pal"><div class="pname">遷移宮</div><div class="stars">天相</div><div class="aux">天虛</div><div class="dy">64–73</div><div class="branch">未</div></div>
+    <div class="pal current"><div class="pname">疾厄宮</div><div class="stars">天同　天梁</div><div class="aux">文昌·天喜·解神·天巫</div><div class="dy">54–63 ◄</div><div class="branch">申</div></div>
+    <div class="pal"><div class="pname">田宅宮</div><div class="stars">太陰<span class="hua h-ke">科</span></div><div class="aux">封誥</div><div class="dy">94–103</div><div class="branch">辰</div></div>
+    <div class="center"><div class="cn">癸丑年二月初九寅時</div><div class="ci">陰男 · 金四局 · 海中金<br>命主巨門 · 身主天相</div><div class="sihua">破軍<span class="hua h-lu">祿</span>　巨門<span class="hua h-quan">權</span>　太陰<span class="hua h-ke">科</span>　貪狼<span class="hua h-ji">忌</span></div></div>
+    <div class="pal"><div class="pname">財帛宮</div><div class="stars">武曲　七殺</div><div class="aux">地空·右弼·蜚廉·鳳閣</div><div class="dy">44–53</div><div class="branch">酉</div></div>
+    <div class="pal"><div class="pname">福德宮</div><div class="stars">天府</div><div class="aux">天魁·恩光</div><div class="dy">104–113</div><div class="branch">卯</div></div>
+    <div class="pal"><div class="pname">子女宮</div><div class="stars">太陽</div><div class="aux">寡宿·天刑</div><div class="dy">34–43</div><div class="branch">戌</div></div>
+    <div class="pal"><div class="pname">父母宮</div><div class="stars" style="color:#bdb9ca">紅鸞</div><div class="aux">天空·孤辰·天才</div><div class="dy">114–123</div><div class="branch">寅</div></div>
+    <div class="pal ming"><div class="pname">命宮</div><div class="stars">紫微　破軍<span class="hua h-lu">祿</span></div><div class="aux">擎羊·地劫·華蓋·八座·三台</div><div class="dy">4–13</div><div class="branch">丑</div></div>
+    <div class="pal"><div class="pname">兄弟宮</div><div class="stars">天機</div><div class="aux">鈴星·祿存·陰煞</div><div class="dy">14–23</div><div class="branch">子</div></div>
+    <div class="pal"><div class="pname">夫妻宮</div><div class="stars" style="color:#bdb9ca">（借巳廉貪）</div><div class="aux">陀羅·天廚</div><div class="dy">24–33</div><div class="branch">亥</div></div>
+  </div>
+  <p class="note">〔事實〕依實盤校對。天喜在申（疾厄）、紅鸞在寅（父母）；兄弟宮子位有鈴星。地支六合（暗合）：子丑、寅亥、卯戌、辰酉、巳申、午未。</p>
+
+  <h4>格局總論</h4>
+  <p><span class="tag t-inf">推論</span>紫微破軍坐命加擎羊、地劫：開創勞動之命，引擎無怠速檔，一生「破舊立新」。<b>身宮坐官祿（巳），廉貪火星帶生年忌：事業即身之所繫，機會以火貪爆發式出現；巳宮生年忌為終身之結，每逢祿來解結即為應期——本書一切推算之核心機制。</b>華蓋坐命、官祿天機（術數星在兄弟宮暗合線）、身宮貪狼：宗教五術之緣深，走「究理造法」一路。田宅太陰化科為全盤最穩財星，財之落定以文書名分為形。</p>
+  <div class="ev"><b>佐證</b>紫破祿擎羊地劫華蓋坐丑；廉貪忌火星天鉞左輔坐巳身宮官祿；太陰科坐辰田宅；武曲七殺右弼地空坐酉財帛；天機祿存鈴星坐子兄弟。祿解忌法：解巳忌者唯甲廉貞祿、戊貪狼祿。</div>
+</section>
+
+<!-- 貳 貴人地圖 -->
+<section>
+  <h3 class="sec"><span>貳</span>貴人地圖（師承規則：真貴看魁鉞，輔弼逢煞越幫越忙）</h3>
+  <ul>
+    <li><b>天魁坐卯（天府）＝最乾淨貴人線：</b>醫療、心性、財庫之貴——病有良醫、關口有人接。</li>
+    <li><b>天鉞坐巳（身宮官祿）＝事業與兒子之貴：</b>鉞型人物象——溫和、文職、不邀功的上位者，可信。</li>
+    <li><b>右弼＋地空＋武殺坐酉（財帛）＝攪局主線：</b>「幫你的錢、幫你喬上面」的熱心人一律過濾；口惠不受。左輔逢火星在巳同理。<b>分辨法：真貴人不邀功、假助力最熱心；催你「現在就決定」的，全是弼。</b></li>
+  </ul>
+  <div class="ev"><b>佐證</b>經自身資料回測兩案全勝（1995–97右弼第二線之亂；2001–04成婚主力為天喜非右弼）。介紹人形態由右弼同宮之星描畫：武殺右弼＝剛直長輩型（舅舅，已驗）。</div>
+</section>
+
+<!-- 參 總綱 -->
+<section>
+  <h3 class="sec"><span>參</span>總綱</h3>
+  <div class="motto">吉凶不是命運的獎懲，是成本曲線的兩端——<b>趨吉避凶，就是趁便宜的時候付帳。</b><br>本大運（54–63）主題一個動詞：<b>簽名</b>。變動是選項，白紙黑字是天條。</div>
+  <p><span class="tag t-inf">推論</span>三面一事：公司名分（2034前簽滿）、兄弟名分（規則寫滿，非必買賣）、夫妻名分（出資與繼承見字）。凶年是問題的到期日，不是來源——每一幕引爆點都是規則真空，凶年只是點火。</p>
+  <p class="note">〔認識論〕紫微是組織現實的鏡子，不是預言機——盤給框架、事實給內容、文件是終點。應期權重序：<b>大運圈定範圍、流年精準定位——瞄準鏡不能當望遠鏡</b>。大事之成需雙軌：吉化定向＋煞破定成。遠期推論以結構層閱讀：配備確定、戰場未知。</p>
+</section>
+
+<!-- 肆 現行大運十二宮 -->
+<section>
+  <h3 class="sec"><span>肆</span>現行大運（54–63）十二宮全掃</h3>
+  <p class="note">〔事實〕大運命入申（宮干庚），全盤自申宮起逆佈；庚干四化（天相忌版）：太陽祿入戌、武曲權入酉、太陰科入辰、天相忌入未。</p>
+  <table>
+    <tr><th>大運宮</th><th>落宮</th><th>判讀〔推論〕</th></tr>
+    <tr><td>大命</td><td>申（天同天梁文昌·天喜）</td><td>轉軌養身；福星壽星文星坐鎮，體質可調、有恙可醫。巳申暗合：職場悶氣以身體結帳。</td></tr>
+    <tr class="row-bad"><td>大兄（兼母）</td><td>未（天相·大運忌）</td><td>全運唯一忌星。母親手足之名分為要角；巨門天梁夾，丁年成刑忌夾印。外求帶忌：不外求。宮位轉換：岳家線亦落未——兩邊長輩同宮同年。</td></tr>
+    <tr><td>大夫</td><td>午（巨門權文曲）</td><td>議事廳婚姻：講理對帳共決。配偶為持印人；午未暗合天相忌，母事暗渡婚姻，化法為配偶正式與會。<b>戊干飛貪狼祿入巳——配偶為終身之結的解方持有人。</b></td></tr>
+    <tr class="row-good"><td>大子</td><td>巳（廉貪忌火星·身宮官祿）</td><td><b>兒子與終身之忌同位——父子共業，起落同組星計時（2028同祿、2033同忌、2034同祿）。</b></td></tr>
+    <tr><td>大財</td><td>辰（太陰科）</td><td>雙科：簽字財。辰酉暗合本財武曲權——談判主導在己、文件收尾。</td></tr>
+    <tr><td>大疾</td><td>卯（天府天魁）</td><td>庫星＋貴人：病有庫底、醫有貴人——健康承接盤厚實。</td></tr>
+    <tr><td>大遷</td><td>寅（紅鸞·借申同梁）</td><td>外緣皆長輩型貴人；無己之舞台——又一票不外求。與體制文書往來增多。</td></tr>
+    <tr><td>大友</td><td>丑（紫破祿擎羊華蓋地劫）</td><td>所聚皆同款之人（開創、玄學、帶刺）——量縮質升；擎羊在內，同道防理念之爭變意氣。</td></tr>
+    <tr><td>大官</td><td>子（天機鈴星祿存）</td><td>謀略換穩財；事業繫於平輩協作。<b>鈴星入大官——事業線有「突發暗火」：專案急變、平輩衝突之火，來得快，書面留痕化之。</b></td></tr>
+    <tr><td>大田</td><td>亥（陀羅·借巳廉貪）</td><td>家之品質＝婚姻之品質；產之形由既存資產重組而定。工作之火不帶回家。</td></tr>
+    <tr><td>大福</td><td>戌（太陽）</td><td>心之所樂在傳承——教人帶人看後輩成材；太陽偏暗，給予不求回報方不內耗。</td></tr>
+    <tr><td>大父</td><td>酉（武曲七殺右弼地空）</td><td>上一輩之錢事必上桌，武殺之性一次談清、規則不默契。右弼地空＝攪局長輩線（口惠不受）。</td></tr>
+  </table>
+  <p><span class="tag t-inf">推論</span><b>十二宮總圖：此非財官運，是全家共業運——八宮直接涉家人。排序：家運為體，財官為用。三主軸＝立印（名分文件）、守巳（2028拿/2033趴/2034走）、鎖財（簽進來鎖起來、不與人共財）。</b>健康天條在2033（巳申暗合，職場風暴灌疾厄）：年初健檢。</p>
+</section>
+
+<!-- 伍 逐年 -->
+<section>
+  <h3 class="sec"><span>伍</span>逐年吉凶 2026–2035（事之判讀＋人之守則）</h3>
+  <table>
+    <tr><th>年</th><th>屬性</th><th>判讀與守則</th></tr>
+    <tr><td class="yr">2026</td><td><span class="chip c-mid">變動·備料</span></td><td>昇等已兌現；下半年坐穩防勞而無名、同儕書面。房產只備料不簽字（丙忌打大田借星）；查母系與共有屋淵源、稅序試算。人：眼紅者與熱心人齊出，付費專業＝鉞、免費熱心＝弼。</td></tr>
+    <tr><td class="yr">2027</td><td><span class="chip c-mid">簽字大年</span></td><td>太陰祿入辰：賣自住屋、協議補強、兩邊長輩意願文件——三印分季辦、日期對齊。刑忌夾印＋巨門忌入午（配偶宮）——只認在場文件；<b>配偶天氣最陰：共同定稿、外人對她資產的意見你先擋、書面攤利弊。</b></td></tr>
+    <tr class="row-good"><td class="yr">2028</td><td><span class="chip c-good">大吉·搬定</span></td><td>貪狼祿解巳忌＋太陰權入辰＋流田疊大田：年中前換屋搬入太太名下另屋（流田落亥＝夫妻宮，搬進妻之屋字面兌現；同圈不犯遷移忌）。財斷田祿雙軌＝真成交。子大一警訊年（選課保守）；父子同祿。弟妹帳目書面（天機忌入子）。</td></tr>
+    <tr><td class="yr">2029</td><td><span class="chip c-good">吉·入袋</span></td><td>武曲祿入本財、流命坐酉：變現尾款落袋年。文曲忌：款項文件逐字。人：流命坐攪局宮——熟人理財話術高峰，入袋只認機構與白紙黑字。</td></tr>
+    <tr class="row-bad"><td class="yr">2030</td><td><span class="chip c-bad">警戒</span></td><td>天相雙忌沖命＋母親線大年：外派調職外包一律擋緩；她的大決定之年，行事曆預留。財線反收權科（錢穩著談、人別亂動）。母親醫療走卯宮天魁線（信專業）。</td></tr>
+    <tr><td class="yr">2031</td><td><span class="chip c-mid">平</span></td><td>文書小年，校對即解。流命入亥（舅線疊大田）——母系親族與房宅之事若浮現在此年。</td></tr>
+    <tr><td class="yr">2032</td><td><span class="chip c-mid">吉凶並見</span></td><td>「氣」立論年（紫微權入命）；武曲忌入本財：不增貸不開新部位、系統只跑不調參。攪局宮帶忌——任何人報的明牌一律視為忌星化身。</td></tr>
+    <tr class="row-bad"><td class="yr">2033</td><td><span class="chip c-bad">大凶·健康天條</span></td><td>雙貪狼忌＋火星壓身宮、流命坐擎羊：守、不簽、不自請、讓公司開口滾至次年；年初健檢。兒子起步顛簸年——預備金留其份、勿投射焦慮。財線有科護（凶不在錢）。可信者僅二：卯宮天魁（醫生）與枕邊人。危險畫像：「幫你安排出路」的快速方案推銷者——不簽。</td></tr>
+    <tr class="row-good"><td class="yr">2034</td><td><span class="chip c-good">大吉·收官</span></td><td>廉貞祿解忌＋破軍權入命：主動退場黃金年，條件談滿簽字落袋，交棒感最強。天鉞得祿——溫和文職高層助力可信；左輔同場——轉述不認、只認白紙黑字。</td></tr>
+    <tr><td class="yr">2035</td><td><span class="chip c-mid">收尾</span></td><td>五術方法論定稿（流命坐卯＝天魁宮——十年唯一可放心遇貴之年）。太陰忌入辰＝名分懸置警戒（非破財）：2027–29留下的文件尾巴，懸到此年來討。</td></tr>
+  </table>
+</section>
+
+<!-- 陸 專題 -->
+<section>
+  <h3 class="sec"><span>陸</span>專題</h3>
+
+  <h4>陸之一 · 職涯與退場</h4>
+  <p><span class="tag t-inf">推論</span>主線：2026升→2028擴→2030擋→2033趴→2034走。出口序2034＞2029；十年內外部位子皆坐忌上（天相忌疊遷移＋年資帳雙門檻），不外求。裁員題：2029前是縮編中的收攏者非名單中人；被動風險集中2033——而〔事實〕依勞基法第55條，雇主啟動之資遣搭配舊制年資優於自請退休：全程唯一天條，不自請、讓公司開口。天相第二幕（掌印顧問）64–73開演。</p>
+
+  <h4>陸之二 · 退休後（64–73）在幹嘛、有沒有錢</h4>
+  <p><span class="tag t-inf">推論</span><b>在幹嘛：</b>大運命入未天相疊本命遷移——舞台在外的「掌印蔭人」：顧問、理事、審查、社群召集（民防、無線電、五術角色轉正）。擎羊在旁，做事仍帶鋒芒。<b>事業宮（大官在亥，陀羅借廉貪忌）＝空宮借身宮之忌：退休後所做正是本命題（五術、氣、著述），為道不為財、陀羅主慢磨。</b></p>
+  <p><span class="tag t-inf">推論</span><b>有沒有錢：分兩座庫看。</b>事業財庫（大財在卯，天府天魁）＝<b>空庫</b>：己干之祿不入卯——有庫、有天魁貴、有位望，但<b>無祿不豐</b>：退休後做的事帶名望與貴人網絡，不生大財。真財源＝<b>己武曲化祿飛入酉（此步大運之大福德宮）</b>：祿入福德＝<b>「享用得到、心安理得的財」——退休金與積累，用起來順、不匱乏，但不再增值生大財</b>。合判：<b>退休是「動用存糧、用得安穩」的十年，不是再賺的十年；錢夠且用得安，不會變多也不必。</b>主收入不靠勞動、勞動不為主收入——能只挑喜歡的事做而不問賺不賺錢，是此盤給退休最好的禮物。</p>
+  <div class="ev"><b>佐證</b>大運命宮未起逆佈：大財落卯（天府天魁）、大官落亥（陀羅借廉貪）、大福落酉（武殺）。未宮己干四化：武曲祿入酉（大福德）、貪狼權、天梁科、文曲忌。天府為庫、庫需祿方實（無祿＝空庫）；祿入福德＝享用之財。</div>
+
+  <h4>陸之三 · 財務制度</h4>
+  <div class="grid2">
+    <div class="card"><h5>核心 · 七成以上</h5><p>市值型ETF、定期定額、年度再平衡（現金流法優先）。忌年照常扣款。2026寫死目標股債比與滑降表。</p></div>
+    <div class="card"><h5>衛星 · 上限一二成</h5><p>自建量化系統實盤驗證，兼作貪狼忌之合法籠子。賺不上調、虧完不補。2032只跑不調參。</p></div>
+    <div class="card"><h5>禁區（四不）</h5><p>不合夥、不共同持名、不作保、不投熟人案。晚年三運之忌盡落人際線，此禁令貫穿餘生。</p></div>
+    <div class="card"><h5>錢的文法</h5><p>財帛坐地空——浮財不留手：一次性進帳不過夜活存一個月，即刻變成「不是錢的東西」（ETF／教育金）。KPI用淨資產不用現金餘額。</p></div>
+  </div>
+
+  <h4>陸之四 · 房產（定稿）</h4>
+  <p><span class="tag t-inf">推論</span><b>這三年（2026–28）＝自住屋單純汰換</b>：2026備料查稅序、2027賣自住屋（農曆立春前完成則算丁未年，吃太陰祿了結；價金入信託戶亦收此年）、2028換住太太名下另屋並搬定（太陰權＋流田疊大田）。<b>賣屋之祿入田宅不明入財帛，辰酉暗合過水——帳面賺、現金不留手，真落袋在2029武曲祿入財帛。</b>2028流陀羅在辰：尾款撥付會磨，留一個月現金緩衝。</p>
+  <p><span class="tag t-inf">推論</span><b>共有屋＝獨立後線，不在這三年。</b>其結構定位＝兄弟宮之田宅（酉，武曲七殺右弼地空）：星性主「分割、變現、清空持分」，非買斷持有（買斷僅在該屋有實際自住或增值用途時成立；空置十三年之持有不划算）。處理形式＝與弟妹書面分割變現退出。時機受母親線約束（父母在世不宜動）：<b>2030母親線了結後，首選2034（隨收官一併清）、次選2039（武曲祿再入酉、時機全熟）；2029盤面訊號雖最強（武曲祿入酉）但與母親線敏感期相沖，不主動選。</b></p>
+  <p><span class="tag t-inf">推論</span><b>終生房產圖：</b>2026–28自住汰換 → 2030後至2034（或2039）共有屋分割退出 → 守成 → <b>2041–43（69–71歲）為子置產／產權移轉</b>（大田太陽自化忌、與子成家重疊、財線見忌不見祿＝產動而財不入＝移轉非售利）→ 74後守成 → 84後隨子據點（結構層）。<b>居住座標三十年不動（天相忌攔大遷移）；方位原點以現居為錨。太陽祿入子女之終局：你的產，終點站寫他的名字。</b></p>
+
+  <h4>陸之五 · 家人</h4>
+  <ul>
+    <li><b>配偶（大夫午·巨門權文曲）：</b>議事廳婚姻、持印人、終身之結的解方持有人。三年天氣：2026拉她共治→2027最陰（巨門忌坐其宮：共決非通知、擋外人對她資產的意見、文件攤利弊）→2028妻星得權（新居主導權全交她，順不順是2027欠不欠帳的函數）。家之品質＝婚姻之品質。她真正的想法是事實層——早點問。</li>
+    <li><b>母親（大兄未·天相忌）：</b>奉養有名分。2027辦意願文件、2030大年預留、長輩錢事規則不默契。摩擦者人物象＝程序型（天相），以程序解、實質不讓、讓其掛名共同發起。</li>
+    <li><b>弟妹（本兄子·天機鈴星祿存）：</b>有腦有帳。補三行字（內購、繼承銜接、母親安排）2027補簽；2028帳目書面（天機忌入子）；鈴星在此——突發爭執之火，話快傷人者慎，讓數字說話。</li>
+    <li><b>兒子（大子巳·共星共業）：</b>2028同祿多帶他看你的世界、2033同忌站穩當靠、2034同祿交棒；行政官加啦啦隊不當教練；離巢年（2033前後）功課是體面地放；84後文件執行人即他。（另有專屬命書）</li>
+  </ul>
+
+  <h4>陸之六 · 五術與「氣」</h4>
+  <p><span class="tag t-inf">推論</span>五術排序：以命為業（天機術數星＋華蓋坐命，2032立論、2046收成）、以山為道（貪狼忌坐身，終身之癢亦終身動力）、以醫養身（天梁坐疾厄，大運正踏其上，2030入門）、以卜為器、相取一瓢（陽宅）。「氣」時間線：2027建模→2028體感→2029駕馭→2032立論→2046起收成——以自身偵測分類定位之儀器思維逼近，不借他人之手。〔事實〕「氣」無公認可測定義，SDR實測照FACT/INFERENCE標註。</p>
+
+  <h4>陸之七 · 多角度合參</h4>
+  <p><span class="tag t-inf">推論</span>五行：金四局入申逢庚三金會聚，課題皆土（田宅、坤母、信諾）——煉土成金，名分不寫不成印。卦位：申坐坤方（母），2030丑未沖＝艮坤兩土對沖。驛馬：申為四馬地而天相忌繫之——動於紙不動於身，動能全洩於簽字。納音：命宮海中金——深藏待煉、價值後顯；身宮火貪為煉金之火，2033火候最烈亦離成器最近——不是劫，是淬。晚運逐踏魁（卯）鉞（巳）：愈老愈近貴。</p>
+</section>
+
+<!-- 柒 驗證指引 -->
+<section>
+  <h3 class="sec"><span>柒</span>驗證與方法論（指引）</h3>
+  <p><span class="tag t-fact">事實</span>全部驗證紀錄（已驗／證偽／待驗三欄）、盲測詳錄（感情史四段十三年、房產史五十年回測、高中回測）、勘誤（累計含真盤校正：大運三合算法歸正、鈴星補入、父母宮紅鸞、身宮確認在巳）、引擎規格十五條——見《驗證與方法論別冊》。本冊每條推論之可信度以別冊對帳表為準。</p>
+  <p class="note">近期待驗：2027簽字年與配偶天氣／2028搬定與擴權與子大一／2029入袋與熟人話術／2030雙忌與母親線（派系分岔判別年）／2032立論／2033總考／2034收官／2035遇貴／2038成名／2041–43為子置產。</p>
+</section>
+
+<footer>—— 紫微命書 v0.5 真盤校準定本 · 完全自足 · 下版觸發：待驗項到期開獎，或盤面再校 · 別冊另卷 ——</footer>
+</main>
+</body>
+</html>

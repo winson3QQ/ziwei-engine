@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>驗證與方法論別冊 · v1.0</title>
+<style>
+:root{--ink:#12141d;--ink2:#181b27;--panel:#1e2233;--line:#343a52;--gold:#e3c07a;--gold-dim:#b39a67;--paper:#f2eee1;--muted:#bdb9ca;--soft:#d6d1c2;--lu:#6fbb90;--quan:#d99f4b;--ke:#82a8de;--ji:#d95a50;--good:#20301f;--bad:#3a1f1d;--serif:"Noto Serif TC","Songti TC",serif;--sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.02em}
+main{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+header h1{font-family:var(--serif);font-size:32px;color:var(--gold);letter-spacing:.1em}
+header .sub{color:var(--muted);font-size:14.5px;margin-top:8px}
+header .oath{margin-top:12px;padding:12px 16px;border-left:2px solid var(--gold-dim);color:var(--soft);font-size:14.5px}
+header .oath b{color:var(--gold)}
+section{margin-top:50px}
+h2{font-family:var(--serif);font-size:24px;color:var(--gold);letter-spacing:.1em;padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:20px}
+h2 span{color:var(--gold-dim);font-size:13px;margin-right:10px}
+h3{font-family:var(--serif);font-size:17.5px;margin:26px 0 10px;letter-spacing:.06em}
+p{margin-bottom:12px}
+p.note{color:var(--muted);font-size:13.5px}
+ul{margin:0 0 14px 1.3em}
+li{margin-bottom:9px}
+b{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+th{font-family:var(--serif);text-align:left;color:var(--gold);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--gold-dim);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:1px 9px;border-radius:2px;white-space:nowrap}
+.c-hit{color:#9adcb3;background:var(--good)}
+.c-miss{color:#f2b0a8;background:var(--bad)}
+.c-open{color:#d6d1c2;background:#2c3042}
+.c-part{color:#e8cf9e;background:#33301f}
+tr.hit td{background:rgba(111,187,144,.05)}
+tr.miss td{background:rgba(217,90,80,.06)}
+.spec{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold-dim);padding:14px 18px;margin-bottom:12px;font-size:14.5px}
+.spec b{color:var(--gold)}
+footer{margin-top:70px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>驗證與方法論別冊</h1>
+  <div class="sub">附屬於《紫微命書 · 1973男命》v0.4 · 別冊版本 v1.0 · 2026-07-20</div>
+  <div class="oath">本冊為命書之測試報告與規格書：<b>對帳總表（已驗／證偽／待驗）、盲測詳錄、勘誤、引擎規格、方法論警語</b>。命書本體每一條推論的可信度，以本冊為準。本冊亦為未來排盤引擎之測試集文件——<b>凡入「引擎規格」者，皆經至少一次事實回測；凡標「單案」者，禁止作為通則。</b></div>
+</header>
+
+<!-- 壹 對帳總表 -->
+<section>
+  <h2><span>壹</span>對帳總表</h2>
+
+  <h3>A. 已驗（命中或高吻合）</h3>
+  <table>
+    <tr><th>編號</th><th>推論</th><th>驗證事實</th><th>備註</th></tr>
+    <tr class="hit"><td>V01</td><td>2026昇等之多層訊號（大運祿疊流官＋宮干飛化＋暗合天魁）</td><td>2026/7/1昇等</td><td>事前誤判後補正——教訓見E01；天相忌版下解釋完整存活</td></tr>
+    <tr class="hit"><td>V02</td><td>完婚年反推：主答2004（廉貞祿解忌＋天喜入命）</td><td>命主證實約2004</td><td>乾淨盲測，祿解忌應期法首驗</td></tr>
+    <tr class="hit"><td>V03</td><td>高中回測：公立前段非頂標、穩而不爆</td><td>國立、非第一志願、入學前25%</td><td>「天梁科＝體制正途」橋首驗</td></tr>
+    <tr class="hit"><td>V04</td><td>大運文昌忌＝成績長期緩滑（非單點崩）</td><td>子高中三年25%→50%</td><td>新pattern入庫：文書忌之緩滑形態</td></tr>
+    <tr class="hit"><td>V05</td><td>右弼「第二線／有實無名」＋地空「空名分」</td><td>1995–97大四至研二一段無名分關係</td><td>本系列MVP；揭露前之事前原判命中</td></tr>
+    <tr class="hit"><td>V06</td><td>陀羅坐夫妻＝段段認真皆長跑（質判）</td><td>四段感情皆為多年正式交往</td><td>質全中（量判敗，見F01）</td></tr>
+    <tr class="hit"><td>V07</td><td>「經人介紹、非自行邂逅」主判</td><td>太太為舅舅介紹</td><td>圈層押錯見F03；右弼牽線義第二驗</td></tr>
+    <tr class="hit"><td>V08</td><td>三層技法收斂：舅宮＝夫妻宮（宮位轉換）、母系飛科入牽線宮、寅亥暗合鸞藏長輩宮</td><td>與V07事實三方吻合</td><td>宮位轉換法（親屬定位）入庫</td></tr>
+    <tr class="hit"><td>V09</td><td>房產大運圈定：戌運（34–43）置產主力、酉運（44–53）居所一變</td><td>2005首購、2013賣＋買、2016入現宅</td><td>大運層三案全中；破軍在田＝除舊布新兌現</td></tr>
+    <tr class="hit"><td>V10</td><td>2015乙未太陰忌入辰＝田線斷象</td><td>2013–16換屋期含租屋過渡，忌年居中</td><td>中帶誤差；催生V11新義</td></tr>
+    <tr class="hit"><td>V11</td><td>太陰忌入田＝「名實分離之居」（租賃／過渡／名分懸置），非必破財損屋</td><td>2013–16租屋期</td><td>新參數入庫，精細於古籍泛論；2035警戒據此精細化</td></tr>
+    <tr class="hit"><td>V12</td><td>師承規則「真貴看魁鉞、輔弼逢煞越幫越忙」</td><td>1995–97右弼之亂＋2001–04成婚主力為天喜</td><td>兩案回測全勝，取代泛用讀法；貴人模組改版</td></tr>
+    <tr class="hit"><td>V13</td><td>感情史逐年座標：1991鸞喜互疊（遇見）、1998貪狼祿（第三段起）、2001天喜會太陰（太太登場）、2004天喜入命（完婚）</td><td>命主逐段證實</td><td>1991原判之對象類型附註因安星誤撤回（E04）</td></tr>
+  </table>
+
+  <h3>B. 證偽（正式除名之推論）</h3>
+  <table>
+    <tr><th>編號</th><th>原推論</th><th>證偽事實</th><th>死因解剖與處置</th></tr>
+    <tr class="miss"><td>F01</td><td>感情史密度「1–2位」</td><td>實際至少四段、十三年無空窗</td><td>用夫妻宮靜態結構壓掉流年動態訊號。修正規則入S07：靜態定質、動態定量</td></tr>
+    <tr class="miss"><td>F02</td><td>丁戊節拍器（丁祿戊權入辰＝購屋應期：2007–08、2017–18）</td><td>實際交易2005、2013，皆非丁戊年</td><td>流年化曜每十年必重複，重複訊號無鑑別力。橋拆除；催生S06權重序</td></tr>
+    <tr class="miss"><td>F03</td><td>介紹人圈層「平輩職場」（且主動排除長輩安排）</td><td>介紹人為舅舅（母系長輩）</td><td>宮位職能（財帛＝職場）壓過同宮星曜人物象（武殺＝剛直長輩）。修正入S08</td></tr>
+    <tr class="miss"><td>F04</td><td>右弼「無名貴人，受而不張」（本大運父母線）</td><td>經V12師承規則回測改判</td><td>撤回，改判「攪局警示：口惠不受」——已反映於命書v0.4貴人地圖</td></tr>
+  </table>
+
+  <h3>C. 待驗（依到期日排序）</h3>
+  <table>
+    <tr><th>到期</th><th>預測</th><th>判定規則（預先寫死）</th></tr>
+    <tr><td>2027/1–2</td><td>子學測十年最佳窗口；落點中位「國立中段理工含陽明交大體系」、上緣中央北科、下緣不破國私交界</td><td>三橋分開結帳：台北基隆帶＝方位橋中；新竹在地＝國立橋中外宿橋錯；私立＝星性橋錯。「國私轉譯橋」為新造未驗</td></tr>
+    <tr><td>2027全年</td><td>簽字大年三印落定；配偶天氣最陰（巨門忌坐其宮）；刑忌夾印之口舌形態</td><td>回填：文件完成度、家中溝通實況</td></tr>
+    <tr><td>2028</td><td>擴權＋交割搬定（入妻名屋＝夫妻宮兌現）＋子大一警訊＋父子同祿</td><td>年中前完成度；子大一上成績</td></tr>
+    <tr><td>2029</td><td>入袋年；流命坐攪局宮——熟人理財話術高峰</td><td>回填是否兌現「人」的形態</td></tr>
+    <tr><td>2030</td><td>天相雙忌：外部強制變動＋母親線大決定</td><td>派系依賴度：高（天相忌版特有）——本年為兩派分岔之判別年</td></tr>
+    <tr><td>2032／2033／2034</td><td>立論年／總考年（職場＋健康＋子起步三線）／收官年</td><td>核心應期，派系依賴度：無（各派四化一致）</td></tr>
+    <tr><td>2035</td><td>流命坐魁宮遇真貴；太陰忌＝名分懸置警戒（非破財）</td><td>V11參數之前瞻首用</td></tr>
+    <tr><td>2038／2041–43</td><td>晚年二次高峰兼五術成名／為子置產移轉窗口（69–71歲，與子完婚訊號重疊）</td><td>結構層，存檔</td></tr>
+    <tr><td>回溯待查</td><td>1995乙亥前後是否有居住過渡（V11第三驗）；外縣市共有屋與母系淵源（舅宮疊大田）</td><td>命主一句話可查證</td></tr>
+  </table>
+</section>
+
+<!-- 貳 盲測詳錄 -->
+<section>
+  <h2><span>貳</span>盲測詳錄（二章）</h2>
+
+  <h3>第一章 · 感情史（十三年四段，逐年對帳）</h3>
+  <p>最終時間軸v4：<b>1991</b>鸞喜互疊（遇見／醞釀）→<b>1992初</b>第一段起（大一下，至研二，約五年）→<b>1995</b>副線現（大四，右弼有實無名，至研二）→1995–97雙線並行（大限癸干雙忌之磨的實體）→<b>1997</b>收束入伍→<b>1998</b>貪狼祿解忌＝第三段起（軍中至工作首年，至2000；2000庚辰流鸞入本命夫妻宮坐陀羅＝舊段磨盡）→<b>2001</b>天喜會太陰（主女星、田宅）＝太太登場→<b>2002</b>鸞會右弼＝舅舅介紹之牽線義兌現→<b>2004</b>天喜入命＋廉貞祿＝完婚。</p>
+  <p class="note">過程紀錄：密度初判證偽（F01）、囚星參數修正（「深久」非「怯」）、右弼經「單筆修錯→第二筆翻正」之過擬合教訓（入S09）、介紹人圈層錯（F03）、三層技法（飛化疊宮暗合）收斂至酉宮與母系線之終驗（V08）。</p>
+
+  <h3>第二章 · 房產史（五十年回測）</h3>
+  <p>事實座標：2005首購（33歲，戌運）→2013賣＋買同步（41歲，破軍除舊布新字面兌現）→2013–16租屋過渡（太陰忌之名實分離，V11）→2016入現宅（44歲，酉運首年，天機變動之判）。婚後搬遷至少四次（含租屋），總量推估由錯轉中。</p>
+  <p class="note">戰績：大運橋三勝（V09）、流年節拍器一敗拆除（F02）、雙軌驗證式由2026–28三年之煞化同步預先展示（2026磨而不斷／2027田線見斷／2028財線見破）——本回測即2027–29預測之壓力測試，主力證據（大運層）存活率百分之百，年份精度依誤差經驗放寬為窗口制。</p>
+</section>
+
+<!-- 參 勘誤 -->
+<section>
+  <h2><span>參</span>勘誤（累計五則）</h2>
+  <table>
+    <tr><th>編號</th><th>內容</th><th>版本</th></tr>
+    <tr><td>E01</td><td>「2035天機祿入本命官祿」誤植——正確為大運官祿（子宮）</td><td>v0.1</td></tr>
+    <tr><td>E02</td><td>「福德自化忌（甲干太陽）」係另盤機制誤植——本命福德在卯乙干，正確為太陰忌飛入辰。佐證稽核時查出——附佐證制度之價值即在此</td><td>v0.2</td></tr>
+    <tr><td>E03</td><td>辰、寅兩宮大運區間排錯，依逆行序更正</td><td>v0.1 HTML</td></tr>
+    <tr><td>E04</td><td>1991辛未流鸞流喜安星手誤（誤植戌辰，正確為申寅鸞喜互疊）——「動心之年」結論存活，附送之「太陰型對象」撤回；錯放之「天喜會太陰」訊號物歸原主（2001，太太登場年）</td><td>感情史章</td></tr>
+    <tr><td>E05</td><td>右弼「無名貴人」條經師承規則回測撤回改判（同F04）</td><td>v0.4前</td></tr>
+  </table>
+  <p class="note">E04之教訓即S13安星機器化之直接理由：查表工作不該由人負責。</p>
+</section>
+
+<!-- 肆 引擎規格 -->
+<section>
+  <h2><span>肆</span>引擎規格（全數經事實回測，共十五條）</h2>
+  <div class="spec"><b>S01 分層輸出：</b>一切輸出強制標註 FACT／INFERENCE／待查 三層；佐證（星曜、宮位、技巧）隨推論附出。</div>
+  <div class="spec"><b>S02 四化可配置：</b>四化表為參數非常數（至少庚、壬、戊三干有派系異說）；每條結論標註「派系依賴度」，依賴爭議四化者降信心分級。（實例：2030判讀為兩派分岔之判別年）</div>
+  <div class="spec"><b>S03 多層收斂：</b>單層技法之答案是假設，三層（飛化、疊宮、暗合）收斂之答案才是判讀；單層四化不可出手。（V01、V08雙驗）</div>
+  <div class="spec"><b>S04 疊宮先行：</b>大限疊宮先定「十年之形」，流年再定座標——順序不可反。（感情史章之方法教訓）</div>
+  <div class="spec"><b>S05 雙軌驗證式：</b>大事應期＝吉化定向＋煞破定成；只吉無煞是意願、只煞無吉是災。置產判定式（守恆版）：財帛線見斷破 × 子田線見祿權 ＝ 真成交；賣年田斷、買年財破，逐年接力＝重組案。（2026–28三年全驗）</div>
+  <div class="spec"><b>S06 權重序：</b>大運圈定範圍、流年精準定位——瞄準鏡不能當望遠鏡；流年化曜每十年必重複、單獨無鑑別力，僅作窗口內擇時。（F02之產物；命主共同定稿）</div>
+  <div class="spec"><b>S07 靜態定質、動態定量：</b>結構宮位答「每段什麼樣」，流年動星答「有幾段、在哪年」——以靜態壓動態即F01之死因。</div>
+  <div class="spec"><b>S08 人物象優先：</b>「誰」看同宮星曜人物象，「哪個領域」看宮位職能——不可倒置。（F03之產物；武殺右弼＝剛直長輩型介紹人之定稿範例）</div>
+  <div class="spec"><b>S09 防過擬合：</b>參數修正需兩筆以上獨立事實；單筆答案不修參。（右弼雙義之教訓）</div>
+  <div class="spec"><b>S10 貴人模組：</b>魁鉞＝真貴直接採信；輔弼＝助力訊號須查同宮煞曜，逢煞降為攪局警示。介紹人形態由右弼同宮之星描畫。（V12；師承規則經回測入庫）</div>
+  <div class="spec"><b>S11 宮位轉換法：</b>親屬定位以宮推宮（例：舅＝母之兄弟宮）；轉換所得之宮與本盤宮位重合時，兩事同論。（V08）</div>
+  <div class="spec"><b>S12 專用參數庫：</b>太陰忌入田＝名實分離之居（V11）；文書忌＝長期緩滑非單點崩（V04）；囚星＝深久非怯；地空＝空名分優先於空關係；破軍在田＝除舊布新之置換。——參數皆繫案例，僅適用同構盤面，跨盤須重驗。</div>
+  <div class="spec"><b>S13 安星機器化：</b>全部安星查表由程式執行，人不負責查表。（E04）</div>
+  <div class="spec"><b>S14 遠期＝結構層：</b>遠期推論非較不準之預測，是結構描述——星象恆定、映射過期、驗證失能；輸出時換檔標示，不折價亦不當時程表。（命主共同修訂之認識論）</div>
+  <div class="spec"><b>S15 方位動態錨：</b>方位象之原點為現居地（動態），非絕對座標；方位橋證據力列最低層，判定規則須於開獎前寫死。</div>
+</section>
+
+<!-- 伍 警語 -->
+<section>
+  <h2><span>伍</span>方法論警語（常駐）</h2>
+  <ul>
+    <li><b>事後套合：</b>邊敘現實邊套象，象總能找到位置——此為紫微解釋自由度所致之系統性偏誤。算數者唯二：事前盲測（開獎制）與未到期之年份預測（本冊C表）。</li>
+    <li><b>對號入座：</b>立書者知悉命主現況之解讀，證據力自打折；星曜落點與古籍歸類為可獨立查驗之事實層。</li>
+    <li><b>可證偽性紀律：</b>好預測敢給年份、敢被打臉；開獎前判定規則寫死，開獎後中不誇大、錯必解剖——本冊B表之存在即此紀律之實體。</li>
+    <li><b>盤的最終定位：</b>紫微是組織現實的鏡子不是預言機——盤給框架、事實給內容、文件是終點；它真正的功能，是給重要不緊急之事一個截止日。</li>
+  </ul>
+</section>
+
+<footer>驗證與方法論別冊 v1.0 · 附屬於命書 v0.4 · 下版觸發：C表任一項到期開獎 · 本冊即引擎測試集之第一版 ——</footer>
+</main>
+</body>
+</html>

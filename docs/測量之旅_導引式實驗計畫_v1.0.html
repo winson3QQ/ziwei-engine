@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>測量之旅 · 導引式實驗計畫 v1.0</title>
+<style>
+:root{
+  --ink:#12141d; --ink2:#181b27; --panel:#1e2233; --line:#343a52;
+  --gold:#e3c07a; --gold-dim:#b39a67;
+  --paper:#f2eee1; --muted:#bdb9ca; --soft:#d6d1c2;
+  --cyan:#6fc7bb; --amber:#d99f4b; --blue:#82a8de; --red:#d95a50;
+  --serif:"Noto Serif TC","Songti TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.02em}
+main{max-width:960px;margin:0 auto;padding:0 20px 80px}
+header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+header h1{font-family:var(--serif);font-size:34px;color:var(--gold);letter-spacing:.1em}
+header .sub{color:var(--muted);font-size:14.5px;margin-top:8px}
+.axis{margin:24px 0;padding:18px 22px;background:var(--ink2);border:1px solid var(--gold-dim);font-family:var(--serif);font-size:16.5px;line-height:2;text-align:center}
+.axis b{color:var(--gold)}
+section{margin-top:48px}
+h2{font-family:var(--serif);font-size:23px;color:var(--gold);letter-spacing:.1em;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:18px}
+h2 span{color:var(--gold-dim);font-size:13px;margin-right:10px}
+p{margin-bottom:12px}
+p.note{color:var(--muted);font-size:13.5px}
+ul{margin:0 0 14px 1.3em}
+li{margin-bottom:8px}
+b{color:var(--gold)}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold-dim);padding:16px 20px;margin-bottom:16px}
+.card.stop{border-left-color:var(--red)}
+.card .wk{font-family:var(--serif);color:var(--gold);font-size:15px;letter-spacing:.08em;margin-bottom:4px}
+.card .q{font-family:var(--serif);font-size:18px;color:var(--paper);line-height:1.7;margin-bottom:10px}
+.card .row{font-size:14.5px;color:var(--soft);margin-bottom:6px}
+.card .row b{color:var(--cyan);font-weight:700;margin-right:8px;font-size:13px}
+.card .row.ai b{color:var(--blue)}
+.card .row.out b{color:var(--amber)}
+.card .row.team b{color:#c99fd9}
+.tagline{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.tg{font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:2px;border:1px solid var(--line);color:var(--muted)}
+.tg.phy{color:var(--cyan);border-color:var(--cyan)}
+.tg.cs{color:var(--blue);border-color:var(--blue)}
+.tg.data{color:var(--amber);border-color:var(--amber)}
+.tg.ai{color:#c99fd9;border-color:#c99fd9}
+.rule{background:var(--ink2);border:1px solid var(--red);padding:14px 18px;margin:14px 0;font-size:14.5px}
+.rule b{color:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th{font-family:var(--serif);text-align:left;color:var(--gold);padding:7px 10px;border-bottom:1px solid var(--gold-dim);white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+footer{margin-top:60px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center}
+@media(max-width:700px){header h1{font-size:26px}.card .q{font-size:16px}}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>測量之旅：從我的滑鼠出發</h1>
+  <div class="sub">導引式實驗計畫 v1.0 · 2026-07-20 · 週期：暑假六週 ＋ 高三上輕量五卡 ＋ 學測後收官</div>
+  <div class="axis">起點：「我買了這麼多滑鼠——<b>我的手感，能不能被相信？</b>」<br>
+  終點：「三個世界（現實、麥塊、Apex）各有各的規則，但<b>測量的方法只有一套</b>。」</div>
+</header>
+
+<!-- 原則 -->
+<section>
+  <h2><span>〇</span>五條設計原則</h2>
+  <ul>
+    <li><b>問題先於指令。</b>每週卡開頭是一個問題，不是一個任務——被問題勾住才動手，就不是為做而做。</li>
+    <li><b>每週一到兩小時、一個小產出。</b>做不完就砍範圍，不加時間。十二張卡的產出物疊起來，自動就是完整的學習歷程。</li>
+    <li><b>AI用得透明。</b>AI生的程式碼要逐行註解到能講解；AI給的說法要驗證；<b>AI講錯被你抓到的紀錄，比AI講對更值錢——全部留下來。</b></li>
+    <li><b>先有自己的東西，再邀隊友。</b>團隊在第三週進場，而且進場有科學理由（盲測需要第二個人、跨裝置比對需要不同硬體）——不是湊人數。</li>
+    <li><b>學測永遠優先。</b>高三上每週上限兩小時、段考週與一月全面停跑。</li>
+  </ul>
+  <div class="rule"><b>紅線（一條都不碰）：</b>所有遊戲內實驗只在<b>離線模式、自訂房、訓練場、官方回放</b>進行。任何讀取即時對戰資料、注入記憶體的第三方工具一律不用——那是外掛的技術範疇，碰了實驗就毀了，帳號和誠信一起賠。錄影、逐幀、計時、公開數據：這四樣就夠做完全部實驗。</div>
+</section>
+
+<!-- 第一站 -->
+<section>
+  <h2><span>第一站</span>暑假 · 六張卡（現在－8月底）：滑鼠與人的物理</h2>
+
+  <div class="card">
+    <div class="wk">第 1 週｜命名與考古</div>
+    <div class="q">「你已經自己量過輪詢率了——那時候，你到底想知道什麼？」</div>
+    <div class="tagline"><span class="tg data">資料</span><span class="tg ai">AI</span></div>
+    <div class="row"><b>目的</b>把「已經做過的測量」寫下來：用了什麼工具、量到什麼數字、當時的疑問是什麼。這一頁是整趟旅程的第一頁，也是最真的一頁。順手做一件事：把手上所有滑鼠按「手感」排名，寫在紙上封起來——這是本計畫的賭注，最後一週開獎。</div>
+    <div class="row ai"><b>AI任務</b>問AI「光學滑鼠感應器的原理」和「輪詢率到底是什麼」，然後用自己的話寫三行——寫到能講給不打電動的人聽懂。</div>
+    <div class="row out"><b>產出</b>一頁「我為什麼開始量」＋一張封起來的手感排名。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 2 週｜反應鏈解剖</div>
+    <div class="q">「從敵人出現在螢幕上、到你的槍響——這中間的時間，都被誰吃掉了？」</div>
+    <div class="tagline"><span class="tg phy">物理</span><span class="tg data">資料</span></div>
+    <div class="row"><b>目的</b>用手機慢動作攝影（240fps）拍下「畫面刺激→手指點擊→畫面回應」全程，逐幀計時，把總延遲拆成幾段：人的反應、滑鼠回報、系統與螢幕。猜猜看哪段最大——先猜再量。</div>
+    <div class="row ai"><b>AI任務</b>「一幀是幾毫秒？240fps的計時精度極限在哪？」——問AI，驗算，寫進報告的誤差欄。</div>
+    <div class="row out"><b>產出</b>一張反應鏈時間分解圖（手畫也行）。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 3 週｜盲測與隊友進場</div>
+    <div class="q">「你確定你分得出1000Hz和125Hz？——蒙上設定，敢不敢測一次？」</div>
+    <div class="tagline"><span class="tg data">資料</span><span class="tg" style="color:#c99fd9;border-color:#c99fd9">團隊</span></div>
+    <div class="row"><b>目的</b>找一到兩個同樣打電動的同學入夥。設計盲測：隊友暗中調輪詢率／換滑鼠墊，你只憑手感猜——雙方輪流當受測者。這是整個計畫方法論含金量最高的一週：<b>盲測是科學對抗自我欺騙的標準武器</b>。</div>
+    <div class="row team"><b>團隊</b>分工寫下來：誰調設定、誰記錄、誰受測——每輪輪換。隊友進場有真實理由：盲測結構上就需要第二個人，跨手機／跨滑鼠比對需要不同硬體。</div>
+    <div class="row out"><b>產出</b>盲測記錄表＋一句誠實結論（「分得出／分不出／某條件下才分得出」）。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 4 週｜進入麥塊：虛擬世界的重力</div>
+    <div class="q">「麥塊的世界也有重力——它及格嗎？量出麥塊的 g 值，跟 9.8 比一比。」</div>
+    <div class="tagline"><span class="tg phy">物理</span><span class="tg cs">資工</span><span class="tg ai">AI</span></div>
+    <div class="row"><b>目的</b>單機創造模式：從固定高度丟落物件，錄影逐幀（或紅石計時），量出下落時間，反推麥塊世界的重力加速度。加碼題：弓箭的彈道是不是真的拋物線？麥塊的實驗有一個現實做不到的優點——<b>變因可以完全控制</b>，把這句寫進報告。</div>
+    <div class="row ai"><b>AI任務</b>請AI生一段Python，把逐幀讀到的位置時間數據畫成圖——然後逐行註解到每一行都能解釋。這是本計畫唯一的必寫程式週，份量就這樣，不加。</div>
+    <div class="row out"><b>產出</b>麥塊 g 值＋一張位置–時間圖＋與現實 9.8 的比較短評。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 5 週｜第三個世界：Apex 彈道</div>
+    <div class="q">「Apex 的子彈聽不聽牛頓的話？三個世界的 g 值，現在可以擺在同一張圖上了。」</div>
+    <div class="tagline"><span class="tg phy">物理</span><span class="tg data">資料</span></div>
+    <div class="row"><b>目的</b>訓練場：對已知距離的牆射擊，錄影量彈道下墜量與飛行時間，反推遊戲內的重力設定與初速。挑兩三把彈道差異大的槍就好。然後做全計畫最漂亮的一張圖：<b>現實、麥塊、Apex——三個世界的 g 值並排</b>。</div>
+    <div class="row ai"><b>AI任務</b>把三組數據給AI，請它評論「遊戲為什麼不用真實物理」——然後查證AI的說法有沒有根據，記下你同意和不同意的各一點。</div>
+    <div class="row out"><b>產出</b>三世界 g 值比較圖（草稿版）。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 6 週｜誤差法庭 ＋ 暑假結案</div>
+    <div class="q">「六週下來這些數字，哪個最可疑？每個偏差，都要找到它的嫌疑犯。」</div>
+    <div class="tagline"><span class="tg data">資料</span><span class="tg ai">AI</span><span class="tg" style="color:#c99fd9;border-color:#c99fd9">團隊</span></div>
+    <div class="row"><b>目的</b>開一次「誤差法庭」：全部數據攤開，逐項追誤差來源（幀率極限、手動計時、空氣阻力、遊戲更新率……），每項附證據。然後把六週整理成第一份報告（十頁內），<b>上傳學習歷程</b>。</div>
+    <div class="row ai"><b>AI任務</b>讓AI當對造律師：把你們的誤差解釋餵給它、要它反駁，你們再答辯——攻防紀錄留檔，這就是未來面試被追問的預演。</div>
+    <div class="row out"><b>產出</b>誤差來源清單＋《測量之旅·第一站》報告 v1 ＋ 學習歷程上傳完成。</div>
+  </div>
+</section>
+
+<!-- 第二站 -->
+<section>
+  <h2><span>第二站</span>高三上 · 五張輕量卡（9月－12月，每週≤2小時，段考週停）</h2>
+
+  <div class="card">
+    <div class="wk">第 7–8 週（9月）｜紅石邏輯</div>
+    <div class="q">「不插電，紅石怎麼算 1＋1？」</div>
+    <div class="tagline"><span class="tg cs">資工</span></div>
+    <div class="row"><b>目的</b>麥塊裡用紅石搭出 AND、OR、XOR 邏輯閘，行有餘力拼一個半加器——這是大學資工「數位邏輯」第一章的實體版。每個電路配一張真值表，親手驗證。</div>
+    <div class="row out"><b>產出</b>電路截圖＋真值表對照，各一頁。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 9–10 週（10–11月，避開段考）｜怪裝備還是怪自己</div>
+    <div class="q">「你的爛成績，到底該怪滑鼠、還是怪昨晚沒睡？——讓數據當裁判。」</div>
+    <div class="tagline"><span class="tg data">資料</span><span class="tg ai">AI</span></div>
+    <div class="row"><b>目的</b>用開源瞄準訓練軟體收兩週成績，同時記錄條件（時段、睡眠、用哪隻滑鼠）。比較「裝備差異」和「狀態差異」哪個對成績影響大——不論結論站哪邊，都是好結論。</div>
+    <div class="row ai"><b>AI任務</b>把數據交給AI分析，然後<b>抓它的包</b>：它漏看了哪個變因？它的結論你買不買帳？把這段查核寫下來——這一頁在整份學習歷程裡的價值排前三。</div>
+    <div class="row out"><b>產出</b>統計比較圖＋AI查核紀錄。</div>
+  </div>
+
+  <div class="card">
+    <div class="wk">第 11 週（12月初）｜回到課本</div>
+    <div class="q">「課本的單擺實驗，跟你量滑鼠——其實是同一題？」</div>
+    <div class="tagline"><span class="tg phy">物理</span></div>
+    <div class="row"><b>目的</b>用免費app Phyphox（手機感測器實驗工具）做一個輕量單擺實驗，反推 g 值——第四個 g 值入列。報告開場白已經寫好了：「我在測滑鼠時學會了取樣率和誤差，我想知道同一套方法能不能拿來驗證課本。」第二站到此收斂，<b>上傳第二件學習歷程</b>。</div>
+    <div class="row out"><b>產出</b>《測量之旅·第二站》短報告＋上傳完成。</div>
+  </div>
+
+  <div class="card stop">
+    <div class="wk">1 月｜全面停跑</div>
+    <div class="q">學測月。本計畫暫停，一張卡都不跑——考完見。</div>
+  </div>
+</section>
+
+<!-- 第三站 -->
+<section>
+  <h2><span>第三站</span>學測後 · 收官（2月，兩週）</h2>
+  <div class="card">
+    <div class="wk">第 12 週｜開獎與反思</div>
+    <div class="q">「拆開第一週那張封起來的手感排名——這一年，你的手感被數據推翻了幾次？」</div>
+    <div class="tagline"><span class="tg data">資料</span><span class="tg ai">AI</span></div>
+    <div class="row"><b>目的</b>不做新實驗。把整條軸線蒸餾成一篇短反思：手感 vs 數據的對帳、AI講錯被抓到的清單、誤差教會的事、如果重來會改的三件事。這篇文章回答的是那個終極問題：<b>「這段學習改變了你什麼」</b>——答案是：「我變成一個不太相信未驗證之事的人。」</div>
+    <div class="row ai"><b>AI任務</b>請AI扮演面試教授，針對三件作品出十五個追問題，練到每題能答四十秒——攻防紀錄就是面試小抄。</div>
+    <div class="row out"><b>產出</b>反思文＋面試問答筆記＋三件作品的串線說明（申請時勾選送審用）。</div>
+  </div>
+</section>
+
+<!-- 規格與角色 -->
+<section>
+  <h2><span>附錄</span>規格、工具與角色</h2>
+  <table>
+    <tr><th>項目</th><th>規格</th></tr>
+    <tr><td>產出物</td><td>每站報告十頁以內；標準是「能對著它講四十分鐘不破功」，不是頁數。</td></tr>
+    <tr><td>工具箱</td><td>手機慢動作攝影（240fps）、Phyphox（德國亞琛工大，免費）、Python（AI輔助生成＋逐行註解）、開源瞄準訓練軟體、麥塊單機、Apex訓練場、試算表。</td></tr>
+    <tr><td>AI使用規約</td><td>三條：生成的程式逐行註解到能講解；AI的說法要驗證再引用；AI出錯的紀錄全部保留——那是最好的素材。</td></tr>
+    <tr><td>家長角色</td><td>檔案管理員與聽眾：管上傳期限、管週日十五分鐘的進度會（只問三個問題：為什麼、卡哪裡、下週幹嘛）、當第12週說明會的觀眾。<b>不指導內容、不代寫、不點評。</b></td></tr>
+    <tr><td>上傳時程</td><td>第一站：8月底前。第二站：12月課程截止前。收官件：申請前整理。——期限釘進家庭行事曆，這是全計畫唯一由家長負責盯的事。</td></tr>
+  </table>
+  <p class="note">本計畫是導引，不是合約——哪張卡做起來沒勁就砍、哪個問題岔出更有趣的問題就追。唯一不能改的只有紅線那一條、和一月停跑那一條。</p>
+</section>
+
+<footer>測量之旅 v1.0 · 起點是一堆滑鼠，終點是一套方法 · 計畫可改，好奇心優先</footer>
+</main>
+</body>
+</html>
